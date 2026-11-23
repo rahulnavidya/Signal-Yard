@@ -1,0 +1,1857 @@
+# SIGNAL YARD
+# MASTER GAME DESIGN, TECHNICAL ARCHITECTURE & DEVELOPMENT PROMPT
+
+**Project:** SIGNAL YARD  
+**Platform:** Android  
+**Programming Language:** Kotlin  
+**UI Framework:** Jetpack Compose  
+**Rendering:** Native Android Canvas / Jetpack Compose Canvas  
+**Architecture:** Modular Native Android Application  
+**Genre:** Railway Strategy / Real-Time Simulation / Puzzle / Network Management / Sandbox  
+**Orientation:** Landscape  
+**Connectivity:** Offline-first, fully playable without internet  
+**Distribution:** GitHub repository + GitHub Actions APK builds  
+**Visual Identity:** Handcrafted Miniature Railway Diorama + Illustrated Railway Atlas  
+
+---
+
+# PART 1 — YOUR ROLE AND OVERALL OBJECTIVE
+
+You are acting as a complete independent game development studio.
+
+Your responsibilities include:
+
+- Senior Android application developer.
+- Kotlin software architect.
+- Game systems designer.
+- Railway simulation engineer.
+- Strategy game designer.
+- 2D game rendering programmer.
+- Visual and interaction designer.
+- Game balancing designer.
+- Quality assurance engineer.
+- Android packaging and distribution engineer.
+
+Your task is to develop SIGNAL YARD, a substantial, visually distinctive Android railway strategy and simulation game.
+
+This is not intended to be a basic train-driving application, a generic puzzle collection, a railway-themed idle clicker or a static railway map viewer.
+
+The objective is to build an actual game in which players operate railway networks, coordinate train movements, solve traffic conflicts, manage junctions, complete operational challenges and eventually experiment with their own railway layouts.
+
+The game must support both short casual sessions and substantial long-term gameplay.
+
+Some players should be able to open the game, play for five minutes and leave satisfied.
+
+Other players should be able to spend hours developing a complex railway network or mastering difficult operational challenges.
+
+Both experiences are equally important.
+
+The game must have a recognisable visual identity, satisfying mechanics, meaningful replayability and a polished mobile interface.
+
+Do not simply produce a design document, mockup or collection of non-functional screens.
+
+Develop a working Android game.
+
+However, do not attempt to implement every planned feature in one uncontrolled development pass. Build a stable, playable foundation and expand it incrementally.
+
+---
+
+# PART 2 — THE CENTRAL GAME CONCEPT
+
+## 2.1 What is SIGNAL YARD?
+
+SIGNAL YARD is a railway dispatching and network-management game.
+
+The player is responsible for coordinating train movements across an interconnected railway network.
+
+The network contains:
+
+- Railway tracks.
+- Track connections.
+- Junctions.
+- Switches.
+- Railway signals.
+- Stations.
+- Platforms.
+- Sidings.
+- Railway crossings.
+- Passenger trains.
+- Express trains.
+- Freight trains.
+- Heavy freight trains.
+- Maintenance trains.
+
+Trains enter the railway network, travel between locations and need to reach their assigned destinations.
+
+The player manages the movement of these trains by operating switches, controlling signals, assigning platforms and resolving operational conflicts.
+
+The fundamental challenge:
+
+**KEEP THE RAILWAY MOVING.**
+
+A small network should be accessible to beginners.
+
+A larger network should become an interesting operational challenge requiring anticipation, planning and efficient decision-making.
+
+The experience should combine:
+
+1. Real-time train dispatching.
+2. Railway traffic management.
+3. Strategy and optimisation.
+4. Scenario-based gameplay.
+5. Casual high-score challenges.
+6. Endless simulation.
+7. Railway development.
+8. Creative sandbox construction.
+
+---
+
+# PART 3 — CORE GAME DESIGN PHILOSOPHY
+
+These principles must influence every important design decision.
+
+## 3.1 Accessibility without sacrificing depth
+
+The game must be immediately understandable to players who have little or no railway knowledge.
+
+Players should be able to understand:
+
+- Where each train is travelling.
+- Which track it intends to use.
+- Why it is waiting.
+- Which signal is controlling its movement.
+- What is preventing it from proceeding.
+- What action can resolve the situation.
+
+Complexity should emerge gradually through gameplay rather than being dumped on the player through an enormous tutorial.
+
+## 3.2 Meaningful decisions
+
+Do not make gameplay consist exclusively of repeatedly tapping switches.
+
+Players should have to consider:
+
+- Which train deserves priority.
+- Whether a platform will be available.
+- Whether a junction should be reserved.
+- Whether a freight train should wait.
+- Whether an alternative route is available.
+- Whether two trains may create a conflict.
+- Whether maintaining a timetable is worth delaying another service.
+
+Every decision should have understandable consequences.
+
+## 3.3 Immediate satisfaction
+
+Players should experience frequent positive feedback.
+
+Examples:
+
+- A successful junction clearance.
+- A train arriving at its destination.
+- A complicated route conflict being resolved.
+- Several trains operating without delays.
+- A series of consecutive successful deliveries.
+- A perfectly coordinated platform assignment.
+
+Casual modes should provide satisfying experiences within minutes.
+
+## 3.4 Fair difficulty
+
+Difficulty must arise from interacting railway systems.
+
+Do not make the game difficult through unfair random events, impossible traffic configurations or arbitrary reaction-time requirements.
+
+A difficult situation must remain understandable and potentially solvable.
+
+## 3.5 Long-term replayability
+
+The game must not become exhausted after completing a short campaign.
+
+Provide multiple forms of replayability:
+
+- Structured campaign content.
+- Short self-contained challenges.
+- Timed casual operations.
+- Endless high-score gameplay.
+- Relaxed free play.
+- Player-created railway networks.
+
+Do not rely on artificial grinding to create playtime.
+
+---
+
+# PART 4 — DISTINCTIVE VISUAL IDENTITY
+
+THIS IS A MAJOR PART OF SIGNAL YARD'S IDENTITY.
+
+The game must look like SIGNAL YARD, not like a generic railway management application.
+
+## 4.1 Primary art direction: Handcrafted Miniature Railway Diorama
+
+The world should resemble a beautifully constructed miniature railway model.
+
+Imagine an elaborate physical railway diorama photographed from a slightly elevated perspective.
+
+Visual characteristics:
+
+- Tiny detailed locomotives.
+- Beautiful passenger carriages.
+- Industrial freight trains.
+- Small countryside stations.
+- Miniature urban buildings.
+- Carefully illustrated trees.
+- Sculpted-looking hills.
+- Bridges and tunnels.
+- Rivers and lakes.
+- Railway crossings.
+- Tiny station platforms.
+- Industrial structures.
+- Distinctive railway infrastructure.
+
+Everything should feel like part of a carefully designed miniature world.
+
+The aesthetic should be charming, sophisticated and detailed without becoming childish.
+
+## 4.2 Rendering approach
+
+IMPORTANT: The target is a polished 2D or 2.5D game, not a full 3D simulation.
+
+Use:
+
+- Original 2D sprites.
+- Vector-drawn railway geometry.
+- Layered environmental artwork.
+- Controlled perspective and shadows.
+- Sprite-based trains and carriages.
+- Illustrated scenery.
+- Subtle lighting effects.
+- Small particle effects.
+- Carefully designed movement animations.
+
+Use a consistent top-down, oblique or isometric-inspired projection.
+
+Choose one projection and apply it consistently.
+
+Do not mix unrelated visual perspectives.
+
+Railway tracks, train movement and decorative scenery must align correctly.
+
+The simulation must remain mathematically independent of the decorative artwork.
+
+The game should create an impression of depth without requiring a complex 3D engine.
+
+## 4.3 Secondary art direction: Illustrated Railway Atlas
+
+The interface should combine the miniature scenery with visual elements inspired by historical railway systems.
+
+Use inspiration from:
+
+- Railway timetable typography.
+- Enamel station signs.
+- Historical railway maps.
+- Brass control instruments.
+- Printed operating schedules.
+- Industrial signal panels.
+- Railway departure boards.
+
+The final interface must remain modern, uncluttered and readable.
+
+Do not create an excessively decorative interface that obscures gameplay.
+
+## 4.4 Colour identity
+
+Establish a consistent visual palette.
+
+Primary colours:
+
+- Forest green: #314B3B
+- Warm sandstone: #B7A77D
+- Graphite: #343A40
+- Brass gold: #D6B56D
+- Signal red: #D65A48
+- Warm ivory: #E3E0D2
+
+Use appropriate additional colours for scenery, train liveries and environmental effects.
+
+Signal colours must be immediately distinguishable.
+
+Where practical, reinforce colours with symbols, text or shapes so that gameplay does not depend solely on colour recognition.
+
+## 4.5 Environment types
+
+Create multiple distinct railway environments:
+
+1. Countryside.
+2. Mountain railway.
+3. Coastal railway.
+4. Forest railway.
+5. Industrial freight district.
+6. Urban railway.
+7. Metropolitan station network.
+8. Winter railway.
+
+Environmental atmosphere can include:
+
+- Morning.
+- Daytime.
+- Sunset.
+- Night.
+- Rain.
+- Fog.
+- Snow.
+
+Weather and atmosphere may influence gameplay in selected scenarios, but they must never make operational information unreadable.
+
+## 4.6 Train visual design
+
+Every train type must have a recognisable silhouette and appearance.
+
+Create distinct designs for:
+
+- Local passenger services.
+- Express passenger trains.
+- Freight locomotives.
+- Heavy freight trains.
+- Maintenance trains.
+- Special railway services.
+
+Do not simply reuse identical train sprites with different colours.
+
+Provide:
+
+- Locomotive movement.
+- Carriage following.
+- Headlights.
+- Braking animations.
+- Station stopping animations.
+- Smooth acceleration and deceleration.
+- Signal animations.
+- Moving railway switches.
+- Appropriate visual effects.
+
+## 4.7 Visual quality requirements
+
+The visual style must be cohesive across:
+
+- Main menu.
+- Railway maps.
+- Train sprites.
+- Stations.
+- Environmental artwork.
+- Scenario selection.
+- Timetables.
+- Operational panels.
+- Pause menus.
+- Reports.
+- Sandbox editor.
+
+Use original assets or properly licensed assets.
+
+Never use emoji as final train artwork.
+
+Do not present generic rectangles and coloured circles as a finished art direction.
+
+Temporary placeholder assets are acceptable during early prototyping, but they must be clearly identified and eventually replaced.
+
+If image-generation tools are available, use them to develop coherent original asset concepts, then create properly sized and aligned game assets.
+
+---
+
+# PART 5 — GAME MODES
+
+SIGNAL YARD must support FIVE distinct gameplay modes.
+
+They are not merely different difficulty settings.
+
+Each mode serves a different player intention.
+
+The player should have access to the casual modes without completing the campaign.
+
+## MODE 1: QUICK DISPATCH
+
+### Purpose
+
+Quick Dispatch is designed for short, immediately playable sessions.
+
+Target duration: approximately 2–5 minutes.
+
+Players should be able to open the game, start a challenge, enjoy a small railway puzzle and finish without having to undertake any long-term progression.
+
+### Gameplay
+
+Present a compact railway layout with a specific operational objective.
+
+Examples:
+
+- Route three trains to their destinations.
+- Deliver an express train without delaying passenger services.
+- Clear a congested station.
+- Assign trains to the correct platforms.
+- Prevent two trains from entering a conflicting junction.
+- Complete a sequence of safe movements.
+- Resolve a track blockage.
+- Manage a small single-track railway.
+
+### Design requirements
+
+Each challenge must:
+
+- Be understandable within seconds.
+- Have a clear objective.
+- Require actual player decisions.
+- Provide immediate visual feedback.
+- End with a satisfying result.
+- Allow immediate replay.
+
+Target a selection of handcrafted micro-challenges supplemented by validated generated variations.
+
+Do not force progression, currency accumulation or unlock grinding in this mode.
+
+### Scoring
+
+Score based on:
+
+- Successful deliveries.
+- Safe operations.
+- Punctuality.
+- Efficient routing.
+- Minimal unnecessary delays.
+- Optional challenge objectives.
+
+Display a concise results screen.
+
+Allow players to retry or select another challenge immediately.
+
+---
+
+## MODE 2: RUSH HOUR
+
+### Purpose
+
+Rush Hour is a dedicated casual real-time railway operations mode.
+
+Target duration: approximately 5–15 minutes.
+
+This is intended to become one of the game's most addictive modes.
+
+It must not function as a smaller career campaign.
+
+### Core gameplay
+
+The player operates a busy railway network during a self-contained session.
+
+Trains arrive according to a generated timetable.
+
+Traffic gradually becomes more demanding.
+
+The player must:
+
+- Control track switches.
+- Manage railway signals.
+- Assign platforms.
+- Coordinate simultaneous arrivals.
+- Prevent conflicting movements.
+- Prioritise selected services.
+- Keep trains moving efficiently.
+- Handle unexpected operational situations.
+
+### Difficulty evolution
+
+Difficulty should evolve through meaningful changes.
+
+Examples:
+
+- More simultaneous trains.
+- Additional route conflicts.
+- Express train priorities.
+- Freight train movements.
+- Limited platform capacity.
+- Single-track bottlenecks.
+- Longer train consists.
+- Temporary track closures.
+- Increased traffic density.
+
+Do not simply increase speed or spawn trains randomly.
+
+### Session duration
+
+Provide multiple session lengths:
+
+- Quick Rush: approximately 5 minutes.
+- Standard Rush: approximately 10 minutes.
+- Extended Rush: approximately 15 minutes.
+
+Allow a player to select the intended duration before beginning.
+
+### Scoring system
+
+Reward:
+
+- Trains delivered successfully.
+- On-time arrivals.
+- Junction clearance.
+- Consecutive successful deliveries.
+- Traffic throughput.
+- Efficient platform management.
+- Problem resolution.
+- Safe operations.
+
+Introduce optional streaks, multipliers and bonus objectives.
+
+Scoring must reward safe operation.
+
+Dangerous behaviour should never produce a higher performance rating than safe operation.
+
+### Session completion
+
+At the end of a session, display:
+
+- Final score.
+- Trains delivered.
+- On-time percentage.
+- Total delays.
+- Safety record.
+- Best streak.
+- Performance rating.
+- Personal record comparison.
+
+Save personal best records locally.
+
+Provide immediate replay.
+
+No permanent career advancement is required.
+
+---
+
+## MODE 3: ENDLESS FLOW
+
+### Purpose
+
+This is a pure endless high-score mode.
+
+It must be independent of career progression and infrastructure grinding.
+
+The player should be able to operate a railway network for as long as they wish.
+
+### Gameplay
+
+The player selects an available railway layout.
+
+Train traffic begins and continues to evolve.
+
+The player attempts to maintain safe and efficient operations.
+
+Traffic complexity increases gradually.
+
+### Difficulty systems
+
+Difficulty can evolve through:
+
+- More frequent trains.
+- Increasing train variety.
+- More complicated junction conflicts.
+- Limited platform capacity.
+- Competing service priorities.
+- Longer freight consists.
+- Track maintenance requirements.
+- Operational incidents.
+- Increasing schedule pressure.
+
+The difficulty curve must remain fair.
+
+Provide opportunities to recover from mistakes.
+
+Do not make the mode simply become impossible after an arbitrary number of minutes.
+
+### Progression philosophy
+
+Endless Flow does not need a persistent economic or career progression system.
+
+Its primary rewards are:
+
+- High scores.
+- Long operational streaks.
+- Personal records.
+- Achievements.
+- Better efficiency.
+- Improved player skill.
+
+Players must be able to start a completely fresh run at any time.
+
+A session can be paused or exited.
+
+Save important personal records.
+
+Where appropriate, offer local resume functionality for interrupted sessions.
+
+### Replayability
+
+Use multiple available railway layouts and validated traffic-generation configurations.
+
+Avoid repeatedly producing identical train patterns.
+
+Generated situations must be operationally valid and solvable.
+
+Store deterministic random seeds where practical so interesting sessions can be reproduced.
+
+---
+
+## MODE 4: ZEN DISPATCH
+
+### Purpose
+
+A relaxed and unrestricted railway experience.
+
+No mandatory countdown.
+
+No score penalties.
+
+No artificial pressure.
+
+### Gameplay
+
+Allow players to operate trains and experiment with available railway layouts.
+
+Players should be able to:
+
+- Select a railway layout.
+- Start and stop trains.
+- Select train services.
+- Operate junctions.
+- Change signal configurations within safety rules.
+- Experiment with different routes.
+- Observe trains moving.
+- Enjoy the miniature railway environment.
+
+Optional objectives and challenges may be available, but they must never interrupt the relaxed experience.
+
+Provide adjustable simulation speed.
+
+This mode should be accessible without campaign advancement.
+
+---
+
+## MODE 5: CAREER
+
+### Purpose
+
+A substantial long-term structured railway campaign.
+
+Career Mode provides the deepest progression experience.
+
+Unlike casual modes, this mode focuses on gradually increasing the player's railway management skills.
+
+### Content target
+
+Plan for approximately:
+
+- 60–80 substantial scenarios.
+- 6–8 distinct railway regions.
+- Multiple scenario types.
+- Increasing operational complexity.
+
+This is a long-term content target, not a requirement to create dozens of empty or repetitive levels immediately.
+
+Create the scenario architecture first.
+
+Release and development milestones should contain complete, playable content rather than inflated level counts.
+
+### Proposed railway regions
+
+REGION 1: COUNTRYSIDE
+
+Introduces:
+
+- Basic railway tracks.
+- Simple junctions.
+- Local passenger trains.
+- Introductory signals.
+- Basic station operations.
+
+REGION 2: INDUSTRIAL DISTRICT
+
+Introduces:
+
+- Freight trains.
+- Heavy locomotives.
+- Sidings.
+- Platform restrictions.
+- Competing routes.
+
+REGION 3: MOUNTAIN NETWORK
+
+Introduces:
+
+- Single-track sections.
+- Passing loops.
+- Bridges.
+- Tunnels.
+- More complex routing.
+
+REGION 4: COASTAL NETWORK
+
+Introduces:
+
+- Multiple stations.
+- Passenger priorities.
+- Different environmental conditions.
+- Longer route combinations.
+
+REGION 5: URBAN NETWORK
+
+Introduces:
+
+- High traffic density.
+- Multiple simultaneous arrivals.
+- Platform scheduling.
+- Multiple junctions.
+
+REGION 6: METROPOLITAN HUB
+
+Introduces:
+
+- Complicated interlocking.
+- Express services.
+- Freight movements.
+- Restricted infrastructure.
+- Complex timetables.
+
+Additional regions can extend the campaign.
+
+### Scenario variety
+
+Do not make every scenario the same railway layout with additional trains.
+
+Create different objective types:
+
+- Timetable management.
+- Express prioritisation.
+- Freight delivery.
+- Platform management.
+- Junction coordination.
+- Traffic throughput.
+- Track maintenance.
+- Service recovery.
+- Restricted infrastructure challenges.
+- Multi-train coordination.
+
+### Career progression
+
+Players unlock:
+
+- New scenarios.
+- New regions.
+- Train categories.
+- Railway infrastructure.
+- Environmental themes.
+- Additional challenges.
+- Sandbox components.
+
+Progression must be based on gameplay achievements.
+
+Do not introduce artificial waiting periods or energy systems.
+
+Career progression must never lock the casual modes.
+
+---
+
+# PART 6 — RAILWAY SIMULATION ENGINE
+
+The railway simulation is the most important technical subsystem.
+
+It must be logically correct and independent of visual rendering.
+
+Do not implement railway movement solely by moving sprites between arbitrary screen coordinates.
+
+The simulation must maintain a logical railway network.
+
+## 6.1 Track graph
+
+Represent railway infrastructure as a graph.
+
+Nodes represent:
+
+- Track connections.
+- Junctions.
+- Stations.
+- Platforms.
+- Other operational infrastructure.
+
+Edges represent traversable track segments.
+
+Each track segment should contain:
+
+- Unique identifier.
+- Starting node.
+- Ending node.
+- Segment length.
+- Track category.
+- Speed restriction.
+- Occupancy state.
+- Reservation state.
+- Direction restrictions.
+- Geometry information.
+
+The graph is the authoritative source of railway connectivity.
+
+## 6.2 Track layout
+
+Use a grid-assisted railway construction system.
+
+Support:
+
+- Straight tracks.
+- Curved tracks.
+- Junctions.
+- Switches.
+- Crossovers.
+- Stations.
+- Platforms.
+- Sidings.
+- Bridges.
+- Tunnels.
+
+Track placement must validate connections.
+
+Do not allow visually connected rails that are logically disconnected.
+
+The underlying graph and rendered geometry must stay aligned.
+
+## 6.3 Switches
+
+Switches determine which connected route is active at a junction.
+
+Players must be able to inspect and control available routes.
+
+The system must:
+
+- Validate switch positions.
+- Prevent unsafe switching.
+- Respect train occupancy.
+- Respect route reservations.
+- Display selected routes.
+- Animate switch changes.
+
+A switch cannot be changed into a conflicting configuration while a protected route is occupied or reserved.
+
+## 6.4 Signals
+
+Implement a clear and coherent signalling system.
+
+At minimum:
+
+GREEN: Protected route is available.
+
+YELLOW: Proceed with caution and prepare to stop at the next signal.
+
+RED: Stop before entering the protected section.
+
+Signal states must be calculated using actual route availability and track conditions.
+
+Signals must not be decorative objects.
+
+A train must obey its controlling signal during standard gameplay.
+
+Use appropriate colours, symbols and status indicators.
+
+## 6.5 Track occupancy
+
+Track sections must maintain accurate occupancy.
+
+Trains cannot enter occupied or conflicting protected sections.
+
+Account for train length, not merely the locomotive position.
+
+A long freight train can occupy multiple track sections.
+
+Track occupancy must update as the train enters and leaves sections.
+
+## 6.6 Route reservation and interlocking
+
+Before permitting a train to enter a route:
+
+1. Calculate a valid route.
+2. Check connected track sections.
+3. Check occupancy.
+4. Check existing reservations.
+5. Check conflicting switch positions.
+6. Reserve the necessary sections.
+7. Set the appropriate signal state.
+8. Permit movement only after validation.
+
+Release reservations once the train has safely cleared the relevant protected sections.
+
+Prevent conflicting routes from being reserved simultaneously.
+
+## 6.7 Deadlock prevention
+
+Detect potential railway deadlocks.
+
+Examples:
+
+- Two trains approaching opposite ends of a single-track section.
+- A train blocking the only route needed by another train.
+- A long freight train obstructing a junction.
+- Conflicting reservations producing circular waiting conditions.
+
+Provide clear explanations when a train cannot proceed.
+
+Do not silently freeze train movement.
+
+## 6.8 Train movement
+
+Trains must follow their calculated routes.
+
+Each train maintains:
+
+- Current route.
+- Current segment.
+- Position along the segment.
+- Speed.
+- Acceleration.
+- Braking capability.
+- Length.
+- Destination.
+- Next station.
+- Operational state.
+
+Implement smooth acceleration and deceleration.
+
+Trains must respect:
+
+- Signal states.
+- Track reservations.
+- Speed restrictions.
+- Station stopping requirements.
+- Braking distances.
+
+Simulation results must not depend on rendering frame rate.
+
+## 6.9 Carriage movement
+
+Carriages must follow the locomotive's actual travelled path.
+
+Their locations should be calculated from distance along the train's path.
+
+Do not simply move each carriage independently towards the locomotive.
+
+Ensure correct movement through curves, switches and junctions.
+
+## 6.10 Route planning
+
+Implement a reliable route-finding system.
+
+Use appropriate graph-search algorithms.
+
+The route planner must understand:
+
+- Connectivity.
+- Direction.
+- Route availability.
+- Track restrictions.
+- Platform destinations.
+- Train compatibility.
+
+When a route becomes unavailable, the player should receive meaningful information.
+
+Do not randomly change a train's destination or route.
+
+---
+
+# PART 7 — TRAIN CATEGORIES
+
+Train types must have meaningful gameplay differences.
+
+## 7.1 Local passenger trains
+
+- Moderate speed.
+- Frequent stops.
+- Shorter consists.
+- Regular schedules.
+- Moderate acceleration.
+
+## 7.2 Express trains
+
+- Higher speed.
+- Fewer scheduled stops.
+- Higher service priority in selected scenarios.
+- Greater braking distance at higher speed.
+- Specific platform or route requirements where appropriate.
+
+## 7.3 Freight trains
+
+- Longer consists.
+- Lower acceleration.
+- Lower maximum speed.
+- Longer braking distance.
+- Greater track occupation.
+
+## 7.4 Heavy freight trains
+
+- Very long consists.
+- Greater infrastructure requirements.
+- More difficult junction management.
+- More restrictive compatible routes.
+
+## 7.5 Maintenance trains
+
+- Special operational requirements.
+- Used for maintenance scenarios.
+- May require track closures or restricted working zones.
+
+Do not create categories that are mechanically identical apart from appearance.
+
+---
+
+# PART 8 — RAILWAY INFRASTRUCTURE MANAGEMENT
+
+Career Mode and future management features can introduce infrastructure development.
+
+Possible infrastructure:
+
+- Additional tracks.
+- Passing loops.
+- Platform extensions.
+- Additional platforms.
+- Sidings.
+- Improved junctions.
+- Additional route connections.
+- Improved signalling.
+- Better station arrangements.
+
+Each improvement must have an actual gameplay effect.
+
+Do not implement upgrade systems that merely increase decorative numbers.
+
+Infrastructure development should be optional in casual modes.
+
+The player must never be forced to complete career progression just to access basic dispatching gameplay.
+
+---
+
+# PART 9 — SCORING AND PERFORMANCE
+
+Provide a transparent performance system.
+
+Evaluate:
+
+1. Safety.
+2. Punctuality.
+3. Successful train deliveries.
+4. Passenger service.
+5. Freight delivery.
+6. Traffic throughput.
+7. Platform efficiency.
+8. Unnecessary delays.
+9. Operational incidents.
+
+Safety must be the highest priority.
+
+Do not reward dangerous train movements simply because they produce higher throughput.
+
+Provide clear feedback explaining the player's performance.
+
+Use medals, grades or other appropriate scoring indicators.
+
+Keep score calculations deterministic and understandable.
+
+---
+
+# PART 10 — TOUCHSCREEN USER EXPERIENCE
+
+SIGNAL YARD is designed primarily for Android phones.
+
+Every gameplay interaction must work comfortably with touch.
+
+## 10.1 Main railway view
+
+The railway network should occupy most of the screen.
+
+Display:
+
+- Tracks.
+- Trains.
+- Stations.
+- Platforms.
+- Switches.
+- Signals.
+- Active routes.
+- Operational alerts.
+- Current objective.
+- Simulation speed.
+- Pause control.
+
+Avoid unnecessary permanent panels that obstruct the map.
+
+## 10.2 Train inspection
+
+Tapping a train should show:
+
+- Train identity.
+- Train category.
+- Current location.
+- Destination.
+- Next stop.
+- Current speed.
+- Route.
+- Operational state.
+- Delay information.
+
+Actions must depend on the train's actual state.
+
+Do not display buttons that do nothing.
+
+## 10.3 Touch interactions
+
+Support:
+
+- Tap to inspect.
+- Tap to select.
+- Tap to operate compatible switches.
+- Tap to inspect stations and platforms.
+- Pinch to zoom.
+- Drag to pan.
+- Clear confirmation for important actions.
+
+Provide visual feedback when an element is selected.
+
+Make interactive targets sufficiently large for phone screens.
+
+## 10.4 UI design
+
+Use the illustrated railway atlas visual language.
+
+Interface elements should include:
+
+- Railway timetable-inspired panels.
+- Station signage.
+- Modern railway typography.
+- Warm industrial materials.
+- Brass accents.
+- Forest-green panels.
+- Clear status indicators.
+- Restrained decorative textures.
+
+The railway map remains the main focus.
+
+---
+
+# PART 11 — MAIN MENU AND NAVIGATION
+
+Create a polished main menu with distinct mode entries.
+
+Recommended structure:
+
+**SIGNAL YARD**
+
+- Quick Dispatch.
+- Rush Hour.
+- Endless Flow.
+- Zen Dispatch.
+- Career.
+- Sandbox.
+- Settings.
+- Records and Statistics.
+
+Quick Dispatch and Rush Hour must be accessible immediately.
+
+Do not lock casual modes behind campaign completion.
+
+Career can have its own progression screen.
+
+Sandbox should become available according to the implementation stage, with its availability clearly communicated until complete.
+
+Do not create fake menu items for features that have not been implemented.
+
+---
+
+# PART 12 — SANDBOX AND RAILWAY EDITOR
+
+Sandbox is a major planned feature.
+
+Players should eventually be able to design their own railway networks.
+
+The editor should support:
+
+- Grid-based track placement.
+- Track removal.
+- Straight tracks.
+- Curved tracks.
+- Junctions.
+- Switches.
+- Stations.
+- Platforms.
+- Signals.
+- Sidings.
+- Train placement.
+- Train type selection.
+- Train schedules.
+- Traffic configuration.
+- Simulation controls.
+- Layout saving.
+- Layout loading.
+
+Validate railway connectivity.
+
+Prevent invalid layouts from being presented as functional.
+
+Provide an undo and redo system where practical.
+
+Allow players to experiment with railway arrangements without career restrictions.
+
+All custom layouts must be saved locally.
+
+Do not attempt to implement a sophisticated editor before the basic simulation is stable.
+
+---
+
+# PART 13 — CONTENT GENERATION AND REPLAYABILITY
+
+Generated content is important, but it must be controlled and validated.
+
+## 13.1 Quick Dispatch generation
+
+Use validated small layouts and scenario templates.
+
+Vary:
+
+- Starting train positions.
+- Destinations.
+- Switching configurations.
+- Service priorities.
+- Number of trains.
+- Operational objectives.
+
+Ensure every generated challenge is solvable.
+
+## 13.2 Rush Hour generation
+
+Create a session-specific timetable and train arrival pattern.
+
+Traffic density should evolve gradually.
+
+Ensure incoming train schedules do not generate unavoidable collisions or impossible platform configurations.
+
+## 13.3 Endless Flow generation
+
+Use multiple supported railway layouts and configurable traffic patterns.
+
+Difficulty should increase through meaningful operational complexity.
+
+Preserve fairness and provide opportunities for recovery.
+
+Save personal records.
+
+## 13.4 Daily Dispatch
+
+Consider an optional daily challenge.
+
+Use the local device date and deterministic generation seed.
+
+The same date and game version should produce the same challenge.
+
+The feature must function without an online server.
+
+This is an additional feature, not a core dependency.
+
+## 13.5 Content architecture
+
+Do not hardcode scenario definitions into UI components.
+
+Represent layouts, scenarios, objectives, trains and traffic patterns as reusable data structures.
+
+This will allow content expansion without modifying the core simulation engine.
+
+---
+
+# PART 14 — AUDIO DESIGN
+
+Create an original sound identity.
+
+Possible sound effects:
+
+- Train horns.
+- Locomotive movement.
+- Braking.
+- Track-switch operation.
+- Signal operation.
+- Railway crossing bells.
+- Station ambience.
+- Rain.
+- Wind.
+- Environmental sounds.
+- Interface feedback.
+
+Provide optional background music.
+
+Provide separate volume controls.
+
+Avoid excessively repetitive audio.
+
+Use original or properly licensed sound assets.
+
+---
+
+# PART 15 — TECHNICAL ARCHITECTURE: KOTLIN + JETPACK COMPOSE
+
+THIS IS A MANDATORY TECHNOLOGY CONSTRAINT.
+
+Develop SIGNAL YARD as a native Android application using Kotlin and Jetpack Compose.
+
+DO NOT MIGRATE TO GODOT, UNITY, UNREAL ENGINE, FLUTTER OR A WEB-BASED GAME FRAMEWORK.
+
+Do not replace the established Android development stack.
+
+## 15.1 Main technology stack
+
+- Kotlin.
+- Jetpack Compose.
+- Material 3 where appropriate.
+- Compose Canvas for custom 2D railway rendering.
+- Native Android APIs where useful.
+- Room or another appropriate local persistence solution.
+- DataStore for preferences.
+- Kotlin coroutines and Flow where appropriate.
+- JUnit for simulation testing.
+- Compose UI testing for important interactions.
+
+Use the versions compatible with the existing repository and its Gradle configuration.
+
+Do not arbitrarily upgrade every dependency.
+
+## 15.2 Rendering architecture
+
+Use Compose for:
+
+- Main menu.
+- Navigation.
+- Panels.
+- Dialogues.
+- Train inspection.
+- Timetables.
+- Operational reports.
+- Settings.
+- Campaign screens.
+
+Use a dedicated rendering layer for the railway world.
+
+Compose Canvas can be used to render:
+
+- Railway tracks.
+- Track geometry.
+- Signals.
+- Trains.
+- Carriages.
+- Stations.
+- Selection indicators.
+- Animated elements.
+- Environmental decoration.
+
+If a dedicated Android Canvas View or custom rendering component provides better performance, it can be used inside a Compose container.
+
+The rendering implementation must remain compatible with the native Kotlin application.
+
+Do not turn the entire game into a web page.
+
+## 15.3 Simulation engine
+
+The simulation engine must be independent of the UI.
+
+Create separate modules or packages for:
+
+- TrackGraph.
+- TrackNode.
+- TrackSegment.
+- JunctionSystem.
+- SignalSystem.
+- TrackOccupancyManager.
+- RoutePlanner.
+- InterlockingSystem.
+- DeadlockDetector.
+- TrainController.
+- TrainMovement.
+- TrainSchedule.
+- StationManager.
+- PlatformManager.
+- RailwaySimulation.
+- ScenarioManager.
+- ScoreManager.
+
+These represent logical responsibilities, not a requirement to create an excessive number of tiny files.
+
+Use sensible modular boundaries.
+
+The simulation must never depend on Compose rendering state to determine whether a train has occupied a section of railway.
+
+## 15.4 Simulation timing
+
+Use a fixed simulation timestep.
+
+Separate simulation timing from rendering frame rate.
+
+Pausing the game must pause simulation state.
+
+Changing simulation speed must not corrupt train positions.
+
+Use appropriate coroutine or game-loop mechanisms.
+
+Avoid tying railway calculations to arbitrary UI recompositions.
+
+## 15.5 Railway geometry
+
+Store track connectivity independently of screen coordinates.
+
+Use a consistent transformation between logical network coordinates and rendered coordinates.
+
+Support camera pan and zoom.
+
+Ensure switches, rails, trains and station platforms align correctly.
+
+Use reusable rendering primitives and sprite assets.
+
+## 15.6 State management
+
+Represent simulation state using explicit, testable data models.
+
+The UI should observe the relevant state.
+
+Do not make UI components responsible for modifying unrelated railway simulation internals.
+
+Ensure that train selection, route information and operational status always reflect the real simulation state.
+
+## 15.7 Performance
+
+Optimise for ordinary Android devices.
+
+Aim for smooth gameplay near 60 FPS where possible.
+
+Avoid unnecessary object allocation inside frequent rendering and simulation loops.
+
+Use efficient asset management.
+
+Only update visual state when required.
+
+Avoid excessive recomposition.
+
+Do not implement expensive environmental effects that provide little gameplay value.
+
+---
+
+# PART 16 — SAVE SYSTEM AND DATA PERSISTENCE
+
+All important gameplay state must be saved locally.
+
+Persist:
+
+- Campaign progress.
+- Completed scenarios.
+- Unlocked content.
+- Personal high scores.
+- Casual mode records.
+- Best operational streaks.
+- Settings.
+- Sandbox layouts.
+- Relevant player statistics.
+
+Do not require account creation.
+
+Saving should be robust against application interruption.
+
+Add basic save-data versioning so that future app updates can migrate existing data safely.
+
+Do not store the entire simulation state in preferences.
+
+Use an appropriate database or structured local storage for more substantial data.
+
+---
+
+# PART 17 — OFFLINE AND PRIVACY REQUIREMENTS
+
+SIGNAL YARD must be fully playable without an internet connection.
+
+Do not include:
+
+- Advertisements.
+- Analytics SDKs.
+- Tracking SDKs.
+- Mandatory accounts.
+- Remote configuration.
+- Telemetry.
+- Cloud-dependent progression.
+- Online leaderboards.
+- Network-dependent gameplay.
+- Mandatory online activation.
+
+Do not request Android INTERNET permission without an explicitly approved feature requirement.
+
+All modes, saves, progression, records and layouts must work locally.
+
+Verify the final merged Android manifest.
+
+Check transitive dependencies for unnecessary networking or tracking components.
+
+Do not assume an application is offline merely because it does not visibly display online features.
+
+---
+
+# PART 18 — DEVELOPMENT ROADMAP AND IMPLEMENTATION PRIORITIES
+
+The project must be developed in manageable, testable stages.
+
+Do not attempt to implement the entire game in a single coding pass.
+
+## PHASE 0 — REPOSITORY AND PROJECT FOUNDATION
+
+First inspect the complete existing repository.
+
+Identify:
+
+- Kotlin version.
+- Compose version.
+- Android Gradle Plugin version.
+- Gradle configuration.
+- Existing module structure.
+- Existing resources.
+- Existing tests.
+- Existing build workflows.
+
+Do not delete or regenerate functioning project files without justification.
+
+Establish:
+
+- Application structure.
+- Main navigation.
+- Visual design foundations.
+- Simulation module.
+- Rendering module.
+- Local persistence foundation.
+- Android configuration.
+
+Ensure the application builds.
+
+## PHASE 1 — PLAYABLE RAILWAY VERTICAL SLICE
+
+This is the first major deliverable.
+
+Build an actual playable railway network.
+
+Include:
+
+- One attractive railway map.
+- Two stations.
+- A small set of connected tracks.
+- At least two junctions.
+- Functional switches.
+- Functional signals.
+- Three moving trains.
+- Different train behaviour where practical.
+- Route assignment.
+- Track reservation.
+- Collision prevention.
+- Basic platform handling.
+- Train inspection.
+- Pause.
+- Simulation speed controls.
+- A scoring system.
+- One playable tutorial.
+- Three playable challenges.
+
+The railway movement must follow real logical routes.
+
+The game must already have the intended visual identity, even if some environmental details are still provisional.
+
+Do not deliver a collection of static screens.
+
+The result must be playable.
+
+## PHASE 2 — CORE SIMULATION QUALITY
+
+Improve:
+
+- Route planning.
+- Track occupancy.
+- Carriage following.
+- Braking.
+- Signal behaviour.
+- Platform management.
+- Timetables.
+- Train priorities.
+- Deadlock detection.
+- Operational feedback.
+- Simulation consistency.
+
+Write automated tests for the critical simulation systems.
+
+## PHASE 3 — CASUAL MODES
+
+This phase is an early priority.
+
+Do not defer casual play until the entire campaign has been completed.
+
+Implement:
+
+1. Quick Dispatch.
+2. Rush Hour.
+3. Endless Flow.
+4. Zen Dispatch.
+
+Validate the session structure, scoring, generation and replayability.
+
+Ensure these modes work independently of Career progression.
+
+## PHASE 4 — CAREER AND CONTENT EXPANSION
+
+Implement:
+
+- Career navigation.
+- Railway regions.
+- Structured scenarios.
+- Objectives.
+- Difficulty progression.
+- Performance ratings.
+- Unlockable content.
+- Local campaign persistence.
+
+Gradually expand the scenario library.
+
+Do not create repetitive filler scenarios just to reach a numerical level target.
+
+## PHASE 5 — SANDBOX
+
+Implement:
+
+- Track editor.
+- Infrastructure placement.
+- Junction configuration.
+- Signal placement.
+- Train setup.
+- Timetable configuration.
+- Simulation controls.
+- Layout saving.
+- Layout loading.
+
+Reuse the tested simulation engine.
+
+## PHASE 6 — ART AND PRESENTATION POLISH
+
+Complete and refine:
+
+- Miniature railway environment assets.
+- Train designs.
+- Station assets.
+- Track artwork.
+- Animations.
+- Visual effects.
+- Sound design.
+- Main menu.
+- UI.
+- Responsive layout.
+
+Maintain visual consistency.
+
+## PHASE 7 — STABILITY AND RELEASE
+
+Perform comprehensive tests.
+
+Fix issues rather than hiding them.
+
+Verify that the final application:
+
+- Installs correctly.
+- Opens reliably.
+- Runs in landscape orientation.
+- Handles application pause and resume.
+- Saves progress.
+- Restores records.
+- Operates entirely offline.
+- Supports touchscreen interaction.
+- Performs acceptably on ordinary Android devices.
+- Produces a valid Android APK.
+
+---
+
+# PART 19 — AUTOMATED TESTING
+
+Create tests for the underlying railway simulation.
+
+At minimum, verify:
+
+1. A train follows a valid route.
+2. Invalid routes are rejected.
+3. A red signal prevents entry.
+4. Conflicting sections cannot be occupied simultaneously.
+5. Conflicting routes cannot be reserved simultaneously.
+6. Switches respect occupancy and reservations.
+7. Long trains occupy the appropriate track sections.
+8. Carriages follow trains through curves.
+9. Trains respect braking distance.
+10. Platforms cannot host incompatible simultaneous movements.
+11. Pausing correctly stops simulation progression.
+12. Simulation speed changes do not corrupt the simulation.
+13. Deadlock conditions are detected.
+14. Invalid railway configurations are rejected.
+15. Saved layouts can be restored.
+16. Campaign progress survives application restart.
+17. Rush Hour sessions produce valid train schedules.
+18. Endless Flow generation produces solvable configurations.
+19. Quick Dispatch challenges are playable to completion.
+20. Casual records persist correctly.
+
+Also perform manual gameplay testing.
+
+A successful compilation does not prove that the game is fun or that train routing is correct.
+
+Do not claim tests passed unless they have actually been executed.
+
+---
+
+# PART 20 — QUALITY AND DESIGN RESTRICTIONS
+
+Do not deliver:
+
+- A menu pretending to be a game.
+- Static images presented as gameplay.
+- Buttons without functionality.
+- Decorative switches with no simulation logic.
+- Trains moving independently of track geometry.
+- Fake train schedules.
+- Arbitrary scoring.
+- Fake progression.
+- Repetitive levels with only train counts changed.
+- Unclear operational alerts.
+- Unusable touchscreen controls.
+- Excessively cluttered screens.
+- Placeholder artwork presented as finished original artwork.
+
+Do not implement unnecessary features simply because they sound impressive.
+
+Prioritise stable mechanics and a coherent experience.
+
+Every displayed operational state must correspond to the actual simulation.
+
+Every important interaction must perform its advertised function.
+
+The game must be enjoyable before progression systems are added.
+
+---
+
+# PART 21 — GITHUB REPOSITORY AND APK DISTRIBUTION
+
+The completed repository must contain a complete buildable native Android project.
+
+Include:
+
+- Kotlin source code.
+- Compose UI.
+- Android manifest.
+- Gradle configuration.
+- Resources.
+- Assets.
+- Local persistence implementation.
+- Automated tests.
+- Documentation.
+- GitHub Actions workflow.
+- Appropriate license only after licensing terms are established.
+
+The development process must not depend on locally installed Android Studio.
+
+Create a GitHub Actions workflow at:
+
+`.github/workflows/build-apk.yml`
+
+The workflow should:
+
+1. Check out the repository.
+2. Configure a compatible JDK.
+3. Configure the Android SDK.
+4. Install required Android platform and build tools.
+5. Configure the project's declared Gradle version.
+6. Run automated tests.
+7. Build the Android debug APK.
+8. Stage the generated APK.
+9. Upload the APK as a GitHub Actions artifact.
+
+Use the existing project's actual Gradle configuration.
+
+Do not invent SDK versions or overwrite working project configuration without inspecting it.
+
+Do not assume `gradlew` exists. Verify the actual wrapper files and use the appropriate build procedure.
+
+Do not commit signing passwords, private keys or secrets.
+
+Ensure the build workflow reports genuine failures.
+
+---
+
+# PART 22 — FIRST ASSIGNMENT TO THE CODING AGENT
+
+Before making changes, inspect the complete repository and development environment.
+
+Do not assume that files or dependencies exist without checking.
+
+Then provide a concise initial assessment covering:
+
+1. Current project structure.
+2. Existing technologies and versions.
+3. Existing implementation, if any.
+4. Missing prerequisites.
+5. Potential architecture problems.
+6. Proposed Phase 0 and Phase 1 implementation plan.
+
+After inspection, proceed with the implementation.
+
+Do not stop after writing another design document.
+
+Do not regenerate the entire repository without necessity.
+
+Do not replace existing working functionality with placeholders.
+
+Preserve functioning code and make targeted changes.
+
+Implement Phase 0 and Phase 1 as the first concrete deliverable.
+
+After implementing the vertical slice:
+
+- Run the available tests.
+- Run the Android build.
+- Inspect errors.
+- Fix underlying problems.
+- Verify the APK.
+- Report what is actually implemented.
+- Report what remains incomplete.
+
+Do not claim successful execution without evidence.
+
+If a genuine technical problem prevents progress, explain the exact cause and provide the smallest appropriate correction.
+
+---
+
+# FINAL CREATIVE VISION
+
+SIGNAL YARD should feel like someone has built an extraordinarily beautiful miniature railway world and handed the player its control panel.
+
+The player should be able to:
+
+- Enjoy a two-minute railway puzzle.
+- Spend ten minutes managing a busy rush hour.
+- Play an effectively endless railway operations session.
+- Relax while operating trains in Zen Dispatch.
+- Work through a substantial railway career.
+- Eventually create and operate their own railway networks.
+
+The game should be charming without being childish.
+
+Strategic without being intimidating.
+
+Detailed without being cluttered.
+
+Complex without being confusing.
+
+Its most important qualities are its distinctive miniature railway art style, satisfying train movements, intelligent simulation and genuinely replayable gameplay.
+
+Do not sacrifice these qualities for unnecessary feature count.
+
+**SIGNAL YARD**
+
+**Every train has somewhere to be. Get them there.**

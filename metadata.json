@@ -1,0 +1,6 @@
+{
+  "name": "Signal Yard",
+  "description": "Handcrafted miniature railway dispatching and network strategy game",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
